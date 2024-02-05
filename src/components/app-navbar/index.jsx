@@ -1,5 +1,17 @@
+import { NavLink } from "react-router-dom";
 import styles from "./index.module.css";
 
 export default function AppNavbar() {
-  return <div className={styles.nav}>AppNavbar</div>;
+  return (
+    <nav className={styles.nav}>
+      <ul>
+        <li>
+          <NavLink to="cities">Cities</NavLink>
+        </li>
+        <li>
+          <NavLink to="countries">Countries</NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
 }
