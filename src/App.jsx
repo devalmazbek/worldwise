@@ -11,53 +11,31 @@ import CityList from "./components/city-list";
 import CountryList from "./components/country-list";
 import City from "./components/city";
 import Form from "./components/form";
+import { CitiesProvider } from "./contexts/citiesContext";
 
 const BASE_API = "http://localhost:8080";
 
 function App() {
-  const [cities, setSities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(function () {
-    async function fetchData() {
-      try {
-        setIsLoading(true);
-        const request = await fetch(`${BASE_API}/cities`);
-        const data = await request.json();
-        setSities(data);
-      } catch {
-        alert("there was an error loading data....");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchData();
-  }, []);
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/app" element={<AppLayout />}>
-            <Route index element={<Navigate replace to="cities" />} />
-            <Route
-              path="cities"
-              element={<CityList cities={cities} isLoading={isLoading} />}
-            />
-            <Route path="cities/:id" element={<City />} />
-            <Route
-              path="countries"
-              element={<CountryList cities={cities} isLoading={isLoading} />}
-            />
-            <Route path="form" element={<Form />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <CitiesProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/app" element={<AppLayout />}>
+              <Route index element={<Navigate replace to="cities" />} />
+              <Route path="cities" element={<CityList />} />
+              <Route path="cities/:id" element={<City />} />
+              <Route path="countries" element={<CountryList />} />
+              <Route path="form" element={<Form />} />
+            </Route>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </CitiesProvider>
     </div>
   );
 }
