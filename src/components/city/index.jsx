@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { useCities } from "../../contexts/citiesContext";
 import BackButton from "../back-button";
+import Spinner from "../spinner";
 
 import styles from "./index.module.css";
-import Spinner from "../spinner";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -27,12 +28,6 @@ function City() {
   );
 
   const { cityName, emoji, date, notes } = currentCity;
-
-  // return (
-  //   <>
-  //     <h1>City {cityName}</h1>
-  //   </>
-  // );
 
   if (isLoading) return <Spinner />;
 
