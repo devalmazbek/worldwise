@@ -15,27 +15,26 @@ import { useCities } from "../../contexts/citiesContext";
 import Button from "../button";
 
 import styles from "./index.module.css";
+import { useGeolocationUrl } from "../../hooks/useGeolocationUrl";
 
 function Map() {
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [searchParams, setSearchParams] = useSearchParams();
 
-  const { cities } = useCities();
+  const [mapLat, mapLng] = useGeolocationUrl();
+
+  const { cities, deleteCity } = useCities();
 
   const {
     isLoading: isLoadingGeolocation,
     position: geolocationPosition,
     error: geolocationError,
     getPosition,
+    LocationMarker,
   } = useGeolocation();
-
-  let mapLng = searchParams.get("lng");
-  let mapLat = searchParams.get("lat");
 
   useEffect(
     function () {
       if (mapLng && mapLat) setMapPosition([mapLat, mapLng]);
-      console.log(mapLat, mapLng);
     },
     [mapLat, mapLng]
   );
@@ -58,7 +57,7 @@ function Map() {
       )}
       <MapContainer
         center={mapPosition}
-        zoom={1}
+        zoom={6}
         scrollWheelZoom={true}
         className={styles.map}
       >
@@ -81,6 +80,7 @@ function Map() {
         })}
         <ChangeCenter position={mapPosition} />
         <DetectClick />
+        <LocationMarker />
       </MapContainer>
     </div>
   );
