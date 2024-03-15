@@ -1,27 +1,27 @@
 {
   "cities": [
     {
-      "id": "c5fa",
-      "cityName": "Culla",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-03-13T09:58:58.555Z",
-      "notes": "sdfsddf",
+      "id": "353a",
+      "cityName": "Entlebuch",
+      "country": "Switzerland",
+      "emoji": "🇨🇭",
+      "date": "2024-03-15T08:59:09.910Z",
+      "notes": "sdfsdfds",
       "position": {
-        "lat": "40.32665496008367",
-        "lng": "-0.14831542968750003"
+        "lat": "46.92025531537454",
+        "lng": "8.118896484375002"
       }
     },
     {
-      "id": "0b66",
-      "cityName": "Ferreira do Zezere",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-03-13T10:03:06.619Z",
-      "notes": "dsfsdf",
+      "id": "4e1f",
+      "cityName": "Bishkek",
+      "country": "Kyrgyzstan",
+      "emoji": "🇰🇬",
+      "date": "2024-03-15T08:59:25.670Z",
+      "notes": "sdfsdf",
       "position": {
-        "lat": "39.774769485295465",
-        "lng": "-8.305664062500002"
+        "lat": "42.86791248391533",
+        "lng": "74.54360961914064"
       }
     }
   ]

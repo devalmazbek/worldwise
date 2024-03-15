@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 
-import styles from "./index.module.css";
+import { useAuth } from "../../contexts/AuthContext";
+
 import PageNav from "../../components/page-nav";
 
+import styles from "./index.module.css";
+
 export default function Homepage() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <main className={styles.homepage}>
       <PageNav />
@@ -18,7 +23,7 @@ export default function Homepage() {
           of. Never forget your wonderful experiences, and show your friends how
           you have wandered the world.
         </h2>
-        <Link to="/app" className="cta">
+        <Link to={`${isAuthenticated ? "/app" : "/login"}`} className="cta">
           Start tracking now
         </Link>
       </section>

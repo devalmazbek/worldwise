@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Marker, Popup, useMapEvents } from "react-leaflet";
 
 export function useGeolocation(defaultPosition = null) {
@@ -26,24 +26,5 @@ export function useGeolocation(defaultPosition = null) {
     );
   }
 
-  function LocationMarker() {
-    const [position, setPosition] = useState(null);
-    const map = useMapEvents({
-      click() {
-        map.locate();
-      },
-      locationfound(e) {
-        setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
-      },
-    });
-
-    return position === null ? null : (
-      <Marker position={position}>
-        <Popup>You are here</Popup>
-      </Marker>
-    );
-  }
-
-  return { isLoading, position, error, getPosition, LocationMarker };
+  return { isLoading, position, error, getPosition };
 }

@@ -29,7 +29,6 @@ function Map() {
     position: geolocationPosition,
     error: geolocationError,
     getPosition,
-    LocationMarker,
   } = useGeolocation();
 
   useEffect(
@@ -80,7 +79,6 @@ function Map() {
         })}
         <ChangeCenter position={mapPosition} />
         <DetectClick />
-        <LocationMarker />
       </MapContainer>
     </div>
   );
