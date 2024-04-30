@@ -1,4 +1,3 @@
-import Navbar from "../../components/navbar";
 import PageNav from "../../components/page-nav";
 import styles from "./../product/index.module.css";
 

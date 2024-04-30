@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   MapContainer,
   TileLayer,
@@ -22,7 +22,7 @@ function Map() {
 
   const [mapLat, mapLng] = useGeolocationUrl();
 
-  const { cities, deleteCity } = useCities();
+  const { cities } = useCities();
 
   const {
     isLoading: isLoadingGeolocation,

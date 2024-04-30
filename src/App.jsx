@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/home";
@@ -13,8 +12,6 @@ import City from "./components/city";
 import Form from "./components/form";
 import { CitiesProvider } from "./contexts/citiesContext";
 import { AuthProvider } from "./contexts/AuthContext";
-
-const BASE_API = "http://localhost:8080";
 
 function App() {
   return (

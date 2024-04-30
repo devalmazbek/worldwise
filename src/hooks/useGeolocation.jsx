@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { Marker, Popup, useMapEvents } from "react-leaflet";
+import { useState } from "react";
 
 export function useGeolocation(defaultPosition = null) {
   const [isLoading, setIsLoading] = useState(false);
